@@ -29,7 +29,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Link to deployed website: 
+Link to deployed website: https://meal-sharing-by-veronica.herokuapp.com/
 
 This project will be built out over 3 different classes:
 
