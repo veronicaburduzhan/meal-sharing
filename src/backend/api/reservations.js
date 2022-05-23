@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const knex = require("../database");
 
-const reservationsColumns = new Set([
+const validationValues = new Set([
   "number_of_guests",
   "meal_id",
   "created_date",
@@ -13,31 +13,31 @@ const reservationsColumns = new Set([
 
 // this function checks if input data valid and makes possible to update only neccesary data in table
 
-function checkTableData(table) {
+function checkRequestInput(table) {
   try {
-    let validTableData = {};
+    let validRequestInput = {};
     for (const key in table) {
-      if (reservationsColumns.has(key)) {
-        validTableData[key] = table[key];
+      if (validationValues.has(key)) {
+        validRequestInput[key] = table[key];
       }
     }
-    if ("number_of_guests" in validTableData) {
-      if (isNaN(Number(validTableData.number_of_guests))) {
+    if ("number_of_guests" in validRequestInput) {
+      if (isNaN(Number(validRequestInput.number_of_guests))) {
         throw new Error();
       }
     }
-    if ("meal_id" in validTableData) {
-      if (isNaN(Number(validTableData.meal_id))) {
+    if ("meal_id" in validRequestInput) {
+      if (isNaN(Number(validRequestInput.meal_id))) {
         throw new Error();
       }
     }
-    if ("created_date" in validTableData) {
-      const createdDateFormatted = new Date(validTableData.created_date);
+    if ("created_date" in validRequestInput) {
+      const createdDateFormatted = new Date(validRequestInput.created_date);
       if (!Date.parse(createdDateFormatted)) {
         throw new Error();
       }
     }
-    return validTableData;
+    return validRequestInput;
   } catch (error) {
     throw error;
   }
@@ -54,7 +54,7 @@ router.get("/", async (request, response) => {
 
 router.post("/", async (request, response) => {
   try {
-    const validTableData = checkTableData(request.body);
+    const validRequestInput = checkRequestInput(request.body);
     if (Object.keys(request.body).length === 0) {
       response.statusCode = 422;
       response.json({
@@ -62,7 +62,9 @@ router.post("/", async (request, response) => {
       });
       return;
     }
-    const insertReservation = await knex("reservations").insert(validTableData);
+    const insertReservation = await knex("reservations").insert(
+      validRequestInput
+    );
     response.json(insertReservation);
   } catch (error) {
     throw error;
@@ -90,7 +92,7 @@ router.get("/:id", async (request, response) => {
 
 router.put("/:id", async (request, response) => {
   try {
-    const validTableData = checkTableData(request.body);
+    const validRequestInput = checkRequestInput(request.body);
     const id = request.params.id;
     if (Object.keys(request.body).length === 0) {
       response.send(422, "There is no data to update. Check input!");
@@ -98,7 +100,7 @@ router.put("/:id", async (request, response) => {
     }
     const updateReservation = await knex("reservations")
       .where({ id: id })
-      .update(validTableData);
+      .update(validRequestInput);
     response.json(updateReservation);
   } catch (error) {
     throw error;
