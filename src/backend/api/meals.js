@@ -51,10 +51,16 @@ function checkRequestInput(table) {
 
 router.get("/", async (request, response) => {
   try {
-    const { maxPrice, title, availableReservations, createdAfter, limit } =
-      request.query;
+    const {
+      maxPrice,
+      title,
+      availableReservations,
+      createdAfter,
+      limit,
+      popularMeals,
+    } = request.query;
     let meals = knex("meals");
-    let filteredMeals;
+    let filteredMeals = [];
     if (Object.keys(request.query).length === 0) {
       response.json(await meals);
       return;
@@ -115,6 +121,15 @@ router.get("/", async (request, response) => {
       } else {
         filteredMeals = await meals.limit(limit);
       }
+    }
+
+    if (popularMeals) {
+      filteredMeals = await meals
+        .join("reviews", "meals.id", "=", "reviews.meal_id")
+        .select("meals.id", "meals.title", "location", "price")
+        .where("reviews.stars", ">", "3")
+        .groupBy("meal_id")
+        .limit(4);
     }
 
     if (filteredMeals.length === 0) {

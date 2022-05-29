@@ -1,19 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import 'theme.css';
-* {
-  font-family: 'Montserrat', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
+  background-color: #efefef;
+  margin: 0;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  background-color: inherit;
 }
 
 #root {
-  padding-left: 30%;
-  padding-right: 30%;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
 
-body {
+p {
   margin: 0;
-  font-size: 17px;
+  padding: 0;
+}
+
+.links {
+  transition: color 0.5s;
+}
+
+.links:hover {
+color: #D96098;
+}
+
+.greenText {
+color: #24A19C;
+}
+
+.pinkText {
+color: #D96098;
 }
 
 ul {
@@ -27,26 +55,68 @@ a {
   color: #2d3233;
 }
 
-button {
-  background-color: #3e99c0;
-  border-radius: 8px;
-  border-width: 0px;
-  font-weight: 295;
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  font-size: 17px;
+.btn {
+  background-color: #325288; 
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  transition-duration: 0.5s;
+  width: fit-content;
 }
 
-@media screen and (max-width: 1400px) {
+.btn:hover {
+  color: white;
+  background-color: #24A19C;
+}
+
+header {
+  background-color: #efefef;
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+display: flex;
+gap: 1.5em;
+}
+
+footer {
+  background-color: #efefef;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  margin: 3em 0 2em 0;
+}
+
+.footerSectionWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerSectionWrapper > div {
+  display: flex;
+  gap: 1.5em;
+}
+
+
+/* @media screen and (max-width: 1400px) {
   #root {
-    padding-left: 30%;
-    padding-right: 30%;
+
   }
 }
 
 @media screen and (max-width: 750px) {
   #root {
-    padding-left: 0;
-    padding-right: 0;
+
   }
-}
+} */
