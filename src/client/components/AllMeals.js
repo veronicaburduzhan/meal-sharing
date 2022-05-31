@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 
 export function AllMeals() {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchItem = async () => {
     const data = await fetch("/api/meals");
     const jsonData = await data.json();
     setMeals(jsonData);
+    setIsLoading(false)
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetchItem();
   }, []);
 
@@ -33,10 +36,12 @@ export function AllMeals() {
   return (
     <>
       <h1>What is your next delicious expirience?</h1>
-      <p>
-      </p>
+      <p></p>
       <section className="mealsSection">
-        <div className="mealsWrapper">{renderMeals}</div>
+        <div className="mealsWrapper">
+          {isLoading ? <p>Loading...</p> : ""}
+          {renderMeals}
+        </div>
       </section>
     </>
   );
