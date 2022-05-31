@@ -40,7 +40,7 @@ export function AllMeals() {
   });
   return (
     <>
-      <h1>What is your next delicious expirience?</h1>
+      <h1>What is your next delicious expirience? BLA BLA BLA</h1>
       <p></p>
       <section className="mealsSection">
         <div className="mealsWrapper">
