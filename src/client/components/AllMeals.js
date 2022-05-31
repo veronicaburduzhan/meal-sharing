@@ -27,7 +27,7 @@ export function AllMeals() {
 
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealShortDescLink">
+      <Link to={`meals/${meal.id}`} className="mealShortDescLink" key={meal.id}>
         <MealShortDesc
           index={i}
           key={meal.id}
@@ -38,6 +38,8 @@ export function AllMeals() {
       </Link>
     );
   });
+
+
   return (
     <>
       <h1>What is your next delicious expirience? BLA BLA BLA</h1>

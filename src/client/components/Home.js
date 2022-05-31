@@ -19,7 +19,7 @@ export function Home() {
 
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealShortDescLink">
+      <Link to={`meals/${meal.id}`} className="mealShortDescLink" key={meal.id}>
         <MealShortDesc
           index={i}
           key={meal.id}
