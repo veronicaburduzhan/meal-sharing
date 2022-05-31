@@ -9,7 +9,12 @@ export function AllMeals() {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchItem = async () => {
-    const data = await fetch("/api/meals");
+    const data = await fetch("/api/meals", {
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    });
     const jsonData = await data.json();
     setMeals(jsonData);
     setIsLoading(false)
