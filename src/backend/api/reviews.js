@@ -53,7 +53,7 @@ router.get("/", async (request, response) => {
 
 router.post("/", async (request, response) => {
   try {
-    const validRequestInput = checkTableData(request.body);
+    const validRequestInput = checkRequestInput(request.body);
     if (Object.keys(request.body).length === 0) {
       response.statusCode = 422;
       response.json({

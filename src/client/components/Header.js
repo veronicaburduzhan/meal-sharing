@@ -1,12 +1,11 @@
 import React from "react";
-import "../style/general.css";
 import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header>
+    <header className="container">
       <h3>
-        <Link to="/">EatTogether</Link>
+        <Link to="/">MealShare</Link>
       </h3>
       <nav>
         <ul>

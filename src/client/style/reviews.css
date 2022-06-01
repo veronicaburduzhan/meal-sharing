@@ -1,0 +1,20 @@
+.reviewStyle {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: #24B091 solid 1px;
+  padding: 2em;
+}
+
+.reviewStyle h3 {
+  margin:0 0 0.7em 0;
+}
+
+.reviewStyle p:last-child {
+    margin-top: 1em;
+    font-size: 1em;
+}
+
+.reviewStyle p {
+    font-size: 0.75em;
+}
