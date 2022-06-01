@@ -6,8 +6,8 @@
     "node": "8.11.1"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "npm run build && node ./src/backend/server",
+    "build": "npx webpack-cli --mode production",
+    "start": "node ./src/backend/server",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon ./src/backend/server",
     "dev": "concurrently \"npm run server\" \"npm run client\""
