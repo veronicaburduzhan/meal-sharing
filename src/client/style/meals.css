@@ -1,0 +1,112 @@
+.mealsSection {
+  display: flex;
+  margin-top: 3em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mealsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.mealContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.mealInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  text-align: right;
+}
+
+.mealInfo h3 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.mealInfo img {
+  width: 100%;
+}
+
+.mealInfoDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin: 1em 0;
+  justify-self: flex-end;
+}
+
+.price {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.mealByIdInfo {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+
+.mealByIdInfo img {
+  max-width: 100%;
+}
+
+.mealByIdInfo h1 {
+  margin: 0 0 1.7em 0;
+  padding: 0;
+}
+
+.mealInfoLink {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: white;
+  padding: 1.4em;
+  transition: box-shadow 0.5s;
+  box-shadow: 0px 0px 50px #eeeeee;
+}
+
+.mealInfoLink:hover {
+  box-shadow: 0px 0px 5px hsla(167, 66%, 42%, 0.45);
+}
+
+.border p:last-child {
+  margin: 2em 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .mealsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+  .mealByIdInfo h1 {
+  font-size: 1.5em;
+}
+
+  .mealByIdInfo p {
+  font-size: 0.8em;
+}
+
+}
+
+@media screen and (max-width: 900px) {
+  .mealByIdInfo {
+    display:flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .mealsWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+}

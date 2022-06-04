@@ -1,20 +1,18 @@
 import React from "react";
-import "../style/general.css";
+import "../../style/meals.css";
 
-export function MealShortDesc({ title, location, price }) {
+export function MealsInfo({ title, location, price }) {
   return (
-    <div className="mealShortDesc">
+    <div className="mealInfo">
       <div>
         <img src="https://via.placeholder.com/200x150"></img>
         <h3 className="pinkText">{title}</h3>
       </div>
-      <div className="mealShortDescInfo">
+      <div className="mealInfoDetails">
         <p>
           Dinner in <span className="greenText">{location}</span>
         </p>
-        <p>
-          DKK <span>{price}</span>
-        </p>
+        <p className="price">DKK {price}</p>
       </div>
     </div>
   );
