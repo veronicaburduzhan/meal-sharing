@@ -34,7 +34,10 @@ export function Footer() {
       </section>
       <section className="footerSection">
         <p>
-          <Link to="/">EatTogether</Link> - Copyright 2022
+          <Link to="/" className="links">
+            MealShare
+          </Link>{" "}
+          - Copyright 2022
         </p>
         <div>
           <Link to="#">

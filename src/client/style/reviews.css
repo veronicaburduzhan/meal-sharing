@@ -1,7 +1,6 @@
 .reviewStyle {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
   border: #24B091 solid 1px;
   padding: 2em;
 }

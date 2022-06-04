@@ -72,9 +72,6 @@ export function AddMeal() {
     return (
       <section className="container">
         <h1 className="pinkText">Add new meal</h1>
-        <section className="addMealSection">
-          <img src="https://images.pexels.com/photos/5589033/pexels-photo-5589033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></img>
-          <div className="addMealDiv">
             <form
               onSubmit={handleAddNewMealSubmit}
               className="formStyle border"
@@ -127,8 +124,6 @@ export function AddMeal() {
                 </button>
               )}
             </form>
-          </div>
-        </section>
       </section>
     );
 }

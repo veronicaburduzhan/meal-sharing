@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../style/forms.css"
+import "../../style/forms.css";
 
 import "../../style/meals.css";
 import { useState, useEffect } from "react";
@@ -9,13 +9,13 @@ import { useParams } from "react-router-dom";
 import { MealReviews } from "./MealReviews";
 import { BookMeal } from "./BookMeal";
 import { LeaveReview } from "./LeaveReview";
+import { PageNotFound } from "./Page404";
 
 export function MealById() {
   const [meal, setMeal] = useState([]);
   const [reservations, setReservations] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [isDone, setIsDone] = useState(false);
-  const [seats, setSeats] = useState("");
+  const [availiableMeals, setAvailableMeals] = useState([]);
 
   const { id } = useParams();
 
@@ -37,19 +37,30 @@ export function MealById() {
     setReviews(jsonData);
   };
 
-  const seatReserved = reservations
-    .filter((reservation) => reservation.meal_id === id)
-    .map((guests) => guests.number_of_guests)
-    .reduce((prev, curr) => prev + curr, 0);
-  
-  const maxReservations = meal.map((meal) => meal.max_reservations)[0];
-  const seatAvailable = maxReservations - seatReserved;
+  const getAvailableMeals = async () => {
+    const data = await fetch(`api/meals?availableReservations=true`);
+    const jsonData = await data.json();
+    setAvailableMeals(jsonData);
+  };
+
+  // const seatReserved = reservations
+  //   .filter((reservation) => reservation.meal_id === id)
+  //   .map((guests) => guests.number_of_guests)
+  //   .reduce((prev, curr) => prev + curr, 0);
+
+  // const maxReservations = meal.map((meal) => meal.max_reservations)[0];
+  // const seatAvailable = maxReservations - seatReserved;
 
   useEffect(() => {
     getMealById();
     getReservations();
     getReviews();
+    getAvailableMeals();
   }, []);
+
+  const mealToBook = availiableMeals.find(
+    (meal) => parseInt(meal.id) === parseInt(id)
+  );
 
   const renderMeal = meal.map((meal, i) => {
     return (
@@ -59,7 +70,10 @@ export function MealById() {
         title={meal.title}
         location={meal.location}
         description={meal.description}
-        when={meal.when}
+        when={meal.when
+          .split("T")
+          .join(" ")
+          .slice(0, meal.when.length - 8)}
         price={meal.price}
       ></MealByIdInfo>
     );
@@ -74,30 +88,42 @@ export function MealById() {
           key={review.id}
           title={review.title}
           description={review.description}
-          created_date={review.created_date}
+          created_date={review.created_date
+            .split("T")
+            .join(" ")
+            .slice(0, review.created_date.length - 8)}
           stars={review.stars}
         ></MealReviews>
       );
     });
 
   return (
-    <div className="container">
-      <section className="mealContainer">
-        <section className="mealByIdInfo">{renderMeal}</section>
-      </section>
-      <section className="bookReviewContainer">
-        <section className="reservationSection">
-          {seatAvailable < 1 ? (
-            <p>No availiable seats</p>
-          ) : (
-            <BookMeal id={id} seatAvailable={seatAvailable} isDone={isDone} />
-          )}
-        </section>
-        <section className="reviewSection">
-          {renderReviews}
-          <LeaveReview id={id} isDone={isDone} />
-        </section>
-      </section>
-    </div>
+    renderMeal.length > 0 ? (
+        <div className="container">
+          <section className="mealContainer">
+            <section className="mealByIdInfo">{renderMeal}</section>
+          </section>
+          <section className="bookReviewContainer">
+            <section className="reservationSection">
+              {mealToBook ? (
+                <BookMeal id={id} />
+              ) : (
+                <div className="formStyle border">
+                  <h2>
+                    Book your <span className="greenText">seat</span>
+                  </h2>
+                  Sorry, there are no availiable seats left.
+                </div>
+              )}
+            </section>
+            <section className="reviewSection">
+              {renderReviews}
+              <LeaveReview id={id} />
+            </section>
+          </section>
+        </div>
+      ) : (
+        <PageNotFound />
+      )
   );
 }

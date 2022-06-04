@@ -21,7 +21,7 @@ export function Home() {
 
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealShortDescLink" key={meal.id}>
+      <Link to={`meals/${meal.id}`} className="mealInfoLink" key={meal.id}>
         <MealsInfo
           index={i}
           key={meal.id}
@@ -35,7 +35,7 @@ export function Home() {
   return (
     <div className="center">
       <div className="banner">
-        <h1>MealShare</h1>
+        <h1 className="greenText">MealShare</h1>
         <p>
           From home or abroad, join intimate culinary experiences led by
           passionate hosts and chefs that will take your breath away.

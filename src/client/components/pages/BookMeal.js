@@ -1,11 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export function BookMeal({ id, seatAvailable }) {
+export function BookMeal({ id }) {
   const [phone, setPhone] = useState("");
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
-  const [numberOfGuests, setNumberOfGuests] = useState();
   const [isDone, setIsDone] = useState(false);
 
   const today = new Date();
@@ -17,11 +16,10 @@ export function BookMeal({ id, seatAvailable }) {
     if (
       phone !== "" &&
       fullname !== "" &&
-      email !== "" &&
-      numberOfGuests !== ""
+      email !== ""
     ) {
       const reservationData = {
-        number_of_guests: numberOfGuests,
+        number_of_guests: 1,
         created_date: date,
         contact_phonenumber: phone,
         contact_name: fullname,
@@ -62,10 +60,6 @@ export function BookMeal({ id, seatAvailable }) {
       <h2>
         Book your <span className="greenText">seat</span>
       </h2>
-      {seatAvailable < 1 ? (
-        <p>No availiable seats</p>
-      ) : (
-        <>
           <input
             type="text"
             placeholder="Name"
@@ -87,16 +81,6 @@ export function BookMeal({ id, seatAvailable }) {
             name="contact_email"
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <input
-            type="number"
-            placeholder="Select guests"
-            min="1"
-            max={seatAvailable.toString()}
-            name="number_of_guests"
-            onChange={(e) => setNumberOfGuests(e.target.value)}
-          ></input>
-        </>
-      )}
       {!isDone && <button className="btn">Book seat</button>}
       {isDone && (
         <button className="btn" type="submit" disabled>

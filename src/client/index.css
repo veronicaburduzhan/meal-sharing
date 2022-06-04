@@ -8,9 +8,8 @@ body {
   font-size: 18px;
   display: flex;
   justify-content: center;
-  color:#2d3233;
+  color: #2d3233;
 }
-
 
 .container {
   width: 80%;
@@ -27,7 +26,7 @@ h2,
 h3,
 p {
   background-color: inherit;
-  color:#2d3233;
+  color: #2d3233;
 }
 
 h1 {
@@ -48,19 +47,19 @@ p {
 
 .links {
   transition: color 0.5s;
-  color:#2d3233;
+  color: #2d3233;
 }
 
 .links:hover {
-color: #F598BB;
+  color: #f598bb;
 }
 
 .greenText {
-color: #24B091;
+  color: #24b091;
 }
 
 .pinkText {
-color: #F598BB;
+  color: #f598bb;
 }
 
 ul {
@@ -75,13 +74,12 @@ a {
 }
 
 .border {
-  box-shadow: 0px 0px 50px #EEEEEE;
+  box-shadow: 0px 0px 50px #eeeeee;
   padding: 2em;
-  border-radius: 10px;
 }
 
 .btn {
-  background-color: #24B091; 
+  background-color: #24b091;
   border: none;
   border-radius: 6px;
   color: white;
@@ -101,7 +99,7 @@ a {
 
 .btn:hover {
   color: white;
-  background-color: #FCC82F;
+  background-color: #fcc82f;
 }
 
 header {
@@ -112,8 +110,8 @@ header {
 }
 
 nav ul {
-display: flex;
-gap: 1.5em;
+  display: flex;
+  gap: 1.5em;
 }
 
 footer {
@@ -125,7 +123,7 @@ footer {
 }
 
 footer ul {
-  display:flex;
+  display: flex;
   gap: 1em;
 }
 
@@ -148,21 +146,47 @@ footer ul {
 .socialMedia {
   margin: 2em 0;
   width: 2em;
-  filter: invert(48%) sepia(95%) saturate(312%) hue-rotate(117deg) brightness(98%) contrast(98%);
+  filter: invert(48%) sepia(95%) saturate(312%) hue-rotate(117deg)
+    brightness(98%) contrast(98%);
 }
 
 .socialMedia:hover {
-  filter: invert(72%) sepia(6%) saturate(3120%) hue-rotate(293deg) brightness(99%) contrast(94%);
+  filter: invert(72%) sepia(6%) saturate(3120%) hue-rotate(293deg)
+    brightness(99%) contrast(94%);
 }
 
-/* @media screen and (max-width: 1400px) {
-  #root {
-
+@media screen and (max-width: 1000px) {
+  header {
+    margin: 2em 0em 1em 0em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+  }
+h1 {
+  font-size: 1.5em;
+}
+  footer {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5em 0 0.7em 0;
+    gap: 3em;
   }
 }
 
-@media screen and (max-width: 750px) {
-  #root {
-
+@media screen and (max-width: 580px) {
+  nav li {
+    font-size: 0.8em;
   }
-} */
+h1 {
+  font-size: 1.2em;
+}
+  footer {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 0.7em 0;
+    gap: 1.5em;
+  }
+}

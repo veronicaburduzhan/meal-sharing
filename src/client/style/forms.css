@@ -24,7 +24,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  border-radius: 10px;
   padding: 2em 2em 3em 2em;
   transition: box-shadow 0.5s;
 }
@@ -32,7 +31,6 @@
 .formStyle input {
   border: #325288 solid 0px;
   background-color: #F7F7F7;
-  border-radius: 6px;
   padding: 0.6rem 0.9rem;
   font-size: 1rem;
 }
@@ -62,3 +60,13 @@
   gap: 1.5em;
 }
 
+.searchSection {
+  padding: 2em 2em 2em 2em;
+}
+
+@media screen and (max-width: 900px) {
+  .bookReviewContainer {
+    display:flex;
+    flex-direction: column;
+  }
+}

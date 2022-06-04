@@ -1,6 +1,6 @@
 import React from "react";
 
-export function MealByIdInfo({ title, description, location, price, when, max_reservations }) {
+export function MealByIdInfo({ title, description, location, price, when }) {
     return (
       <>
         <img src="https://via.placeholder.com/450x370"></img>
