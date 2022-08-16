@@ -52,11 +52,11 @@
   justify-content: space-between;
 }
 
-.meal-by-id-info img {
+.meal-by-id-info-img {
   max-width: 100%;
 }
 
-.meal-by-id-info h1 {
+.meal-by-id-info-header {
   margin: 0 0 1.7em 0;
   padding: 0;
 }
@@ -74,7 +74,7 @@
   box-shadow: 0px 0px 5px hsla(167, 66%, 42%, 0.45);
 }
 
-.border p:last-child {
+.meal-by-id-info-text:last-child {
   margin: 2em 0;
 }
 
@@ -85,11 +85,11 @@
     gap: 1em;
   }
 
-  .meal-by-id-info h1 {
+  .meal-by-id-info-header {
   font-size: 1.5em;
 }
 
-  .meal-by-id-info p {
+  .meal-by-id-info-text {
   font-size: 0.8em;
 }
 
