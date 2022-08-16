@@ -1,26 +1,27 @@
 import React from "react";
-import "../style/general.css";
 import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header>
+    <header className="container">
       <h3>
-        <Link to="/">EatTogether</Link>
+        <Link to="/" className="green-text">
+          MealShare
+        </Link>
       </h3>
       <nav>
-        <ul>
+        <ul className="nav-list">
           <Link to="/">
-            <li className="links">Home</li>
+            <li className="links nav-links">Home</li>
           </Link>
           <Link to="/AddMeal">
-            <li className="links">Add Your Meal</li>
+            <li className="links nav-links">Add Meal</li>
           </Link>
           <Link to="/Meals">
-            <li className="links">Explore Meals</li>
+            <li className="links nav-links">Meals</li>
           </Link>
-          <Link to="/Contact">
-            <li className="links">Contact us</li>
+          <Link to="*">
+            <li className="links nav-links">Contacts</li>
           </Link>
         </ul>
       </nav>

@@ -1,8 +1,10 @@
 import React from "react";
-import "../style/general.css";
+import "../style/home.css";
+import "../style/meals.css"
 import { useState, useEffect } from "react";
-import { MealShortDesc } from "./MealShortDesc";
+import { MealsInfo } from "./pages/MealsInfo";
 import { Link } from "react-router-dom";
+
 
 export function Home() {
   const [meals, setMeals] = useState([]);
@@ -17,29 +19,32 @@ export function Home() {
     fetchItem();
   }, []);
 
+
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealShortDescLink">
-        <MealShortDesc
+      <Link to={`meals/${meal.id}`} className="meal-info-link" key={meal.id}>
+        <MealsInfo
           index={i}
           key={meal.id}
           title={meal.title}
           location={meal.location}
           price={meal.price}
-        ></MealShortDesc>
+        ></MealsInfo>
       </Link>
     );
   });
   return (
-    <>
-      <h1>Eat Together</h1>
-      <p>
-        From home or abroad, join intimate culinary experiences led by
-        passionate hosts and chefs that will take your breath away.
-      </p>
-      <section className="mealsSection">
-        <div className="mealsWrapper">{renderMeals}</div>
+    <div className="center">
+      <div className="banner">
+        <h1 className="banner-header greenText">MealShare</h1>
+        <p className="banner-text">
+          From home or abroad, join intimate culinary experiences led by
+          passionate hosts and chefs that will take your breath away.
+        </p>
+      </div>
+      <section className="container meals-section">
+        <div className="meals-wrapper">{renderMeals}</div>
       </section>
-    </>
+    </div>
   );
 }

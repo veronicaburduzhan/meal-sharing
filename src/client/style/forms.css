@@ -1,0 +1,72 @@
+.book-review-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 3em;
+  margin: 2em 0 1em 0;
+}
+
+.reservation-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.review-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap:1.5em;
+}
+
+.form-style {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 2em 2em 3em 2em;
+  transition: box-shadow 0.5s;
+}
+
+.input-form {
+  border: #325288 solid 0px;
+  background-color: #F7F7F7;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+}
+
+.input-form::placeholder {
+    color: lightgray;
+}
+
+.form-header {
+  padding: 0;
+  margin: 0;
+}
+
+.add-meal-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 3em;
+  margin: 2em 0 1em 0;
+  height: 70vh;
+}
+
+.add-meal-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.search-section {
+  padding: 2em 2em 2em 2em;
+}
+
+@media screen and (max-width: 900px) {
+  .book-review-container {
+    display:flex;
+    flex-direction: column;
+  }
+}

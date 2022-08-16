@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { AllMeals } from "./components/AllMeals";
-import { Meal } from "./components/Meal"
-import { AddMeal } from "./components/AddMeal"
+import { Meals } from "./components/pages/Meals";
+import { MealById } from "./components/pages/MealById";
+import { AddMeal } from "./components/pages/AddMeal";
+import { PageNotFound } from "./components/pages/Page404";
+
  
 
 function App() {
@@ -21,10 +23,13 @@ function App() {
           <AddMeal />
         </Route>
         <Route exact path="/meals">
-          <AllMeals />
+          <Meals />
         </Route>
         <Route exact path="/meals/:id">
-          <Meal />
+          <MealById />
+        </Route>
+        <Route exact path="*">
+          <PageNotFound />
         </Route>
       </Switch>
       <Footer />

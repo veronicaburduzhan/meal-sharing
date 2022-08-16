@@ -1,10 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import "../style/general.css";
+import "../../style/forms.css";
 import { useState, useEffect } from "react";
-import { MealDetails } from "./MealDetails";
-import { Link } from "react-router-dom";
-import { MealReviews } from "./MealReviews";
+
 
 export function AddMeal() {
     const [title, setTitle] = useState("");
@@ -13,7 +10,6 @@ export function AddMeal() {
     const [when, setWhen] = useState("");
     const [maxReservations, setMaxReservations] = useState();
     const [price, setPrice] = useState();
-    const [message, setMessage] = useState("");
     const [isDone, setIsDone] = useState(false);
 
     const today = new Date();
@@ -24,52 +20,61 @@ export function AddMeal() {
         "-" +
         today.getDate();
 
-    const handleAddNewMealSubmit = async (e) => {
+  const handleAddNewMealSubmit = async (e) => {
+      if (
+        title !== "" &&
+        description !== "" &&
+        location !== "" &&
+        when !== "" &&
+        description !== "" &&
+        maxReservations !== "" &&
+        price !== ""
+      ) {
         e.preventDefault();
         const mealData = {
-            title: title,
-            description: description,
-            location: location,
-            when: when,
-            max_reservations: Number(maxReservations),
-            price: Number(price),
-            created_date: date,
+          title: title,
+          description: description,
+          location: location,
+          when: when,
+          max_reservations: Number(maxReservations),
+          price: Number(price),
+          created_date: date,
         };
-
         try {
-            setIsDone(true);
-            let res = await fetch("/api/meals", {
-                method: "POST",
-                headers: { "Content-Type": "Application/json" },
-                body: JSON.stringify(mealData),
-            });
-
-            let resJson = await res.json();
-            if (res.status === 201) {
-                // setFullname("");
-                // setEmail("");
-                // setPhone("");
-                setMessage(`Hooray! You've added ${title}.`);
-                setIsDone(false);
-            } else {
-                setMessage("Sorry! You cannot add meal due to some issues.");
-            }
+          setIsDone(true);
+          const response = await fetch("/api/meals", {
+            method: "POST",
+            headers: { "Content-Type": "Application/json" },
+            body: JSON.stringify(mealData),
+          });
+          if (response.ok) {
+            setTitle("");
+            setDescription("");
+            setLocation("");
+            setWhen("");
+            setMaxReservations();
+            setPrice("");
+            alert(`Hooray! You've added ${title}.`);
+            setIsDone(false);
+          } else {
+            alert(`Sorry! You cannot add meal due to ${response.status}.`);
+            return;
+          }
         } catch (error) {
-            console.log(error);
+          console.log(error);
         }
+      } else {
+        alert("Please, fill empty fields before submit!");
+        return;
+      }
     };
 
-    //   const getMealById = async () => {
-    //     const data = await fetch(`api/meals/${id}`);
-    //     const jsonData = await data.json();
-    //     setMeal(jsonData);
-    //   };
-
     return (
-      <>
-        <h1>Add new meal</h1>
-        <form onSubmit={handleAddNewMealSubmit}>
+      <section className="container">
+        <h1 className="pink-text container-header">Add new meal</h1>
+        <form onSubmit={handleAddNewMealSubmit} className="form-style border">
           <input
+            className="input-form"
             type="text"
             placeholder="Title"
             value={title}
@@ -77,6 +82,7 @@ export function AddMeal() {
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <input
+            className="input-form"
             type="text"
             placeholder="Description"
             value={description}
@@ -84,6 +90,7 @@ export function AddMeal() {
             onChange={(e) => setDescription(e.target.value)}
           ></input>
           <input
+            className="input-form"
             type="text"
             placeholder="Where (fx Aalborg, Odence)"
             value={location}
@@ -91,12 +98,14 @@ export function AddMeal() {
             onChange={(e) => setLocation(e.target.value)}
           ></input>
           <input
+            className="input-form"
             type="date"
             placeholder="When"
             name="when"
             onChange={(e) => setWhen(e.target.value)}
           ></input>
           <input
+            className="input-form"
             type="text"
             placeholder="Max number of reservations"
             value={maxReservations}
@@ -104,20 +113,20 @@ export function AddMeal() {
             onChange={(e) => setMaxReservations(e.target.value)}
           ></input>
           <input
+            className="input-form"
             type="number"
             placeholder="Price"
             min="1"
             name="price"
             onChange={(e) => setPrice(e.target.value)}
           ></input>
-          {!isDone && <button>Create meal</button>}
+          {!isDone && <button className="submit-btn">Create meal</button>}
           {isDone && (
-            <button type="submit" disabled>
+            <button type="submit" className="submit-btn" disabled>
               Creating meal...
             </button>
           )}
-          <div className="message">{message ? <p>{message}</p> : null}</div>
         </form>
-      </>
+      </section>
     );
 }

@@ -1,0 +1,19 @@
+.review-style {
+  display: flex;
+  flex-direction: column;
+  border: #24B091 solid 1px;
+  padding: 2em;
+}
+
+.review-header {
+  margin:0 0 0.7em 0;
+}
+
+.review-text:last-child {
+    margin-top: 1em;
+    font-size: 1em;
+}
+
+.review-text {
+    font-size: 0.75em;
+}
