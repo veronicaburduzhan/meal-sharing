@@ -8,15 +8,15 @@ export function MealReviews({
   created_date,
 }) {
   return (
-    <div className="reviewStyle">
-      <h3 className="pinkText">{title}</h3>
-        <p>
-          Rating: <span className="greenText">{stars}</span>
-        </p>
-        <p>
-          Date: <span className="greenText">{created_date}</span>
-        </p>
-        <p>{description}</p>
+    <div className="review-style">
+      <h3 className="pink-text review-header">{title}</h3>
+      <p className="review-text">
+        Rating: <span className="green-text">{stars}</span>
+      </p>
+      <p className="review-text">
+        Date: <span className="green-text">{created_date}</span>
+      </p>
+      <p className="review-text">{description}</p>
     </div>
   );
 }

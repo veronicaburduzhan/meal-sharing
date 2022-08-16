@@ -1,19 +1,19 @@
-.reviewStyle {
+.review-style {
   display: flex;
   flex-direction: column;
   border: #24B091 solid 1px;
   padding: 2em;
 }
 
-.reviewStyle h3 {
+.review-header {
   margin:0 0 0.7em 0;
 }
 
-.reviewStyle p:last-child {
+.review-text:last-child {
     margin-top: 1em;
     font-size: 1em;
 }
 
-.reviewStyle p {
+.review-text {
     font-size: 0.75em;
 }

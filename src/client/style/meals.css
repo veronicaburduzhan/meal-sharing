@@ -1,39 +1,39 @@
-.mealsSection {
+.meals-section {
   display: flex;
   margin-top: 3em;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.mealsWrapper {
+.meals-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
 }
 
-.mealContainer {
+.meal-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.mealInfo {
+.meal-info {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   text-align: right;
 }
 
-.mealInfo h3 {
+.meal-info-header {
   font-size: 1em;
   font-weight: 400;
 }
 
-.mealInfo img {
+.meal-info-img {
   width: 100%;
 }
 
-.mealInfoDetails {
+.meal-info-details {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -46,22 +46,22 @@
   font-weight: 700;
 }
 
-.mealByIdInfo {
+.meal-by-id-info {
   display: flex;
   gap: 2em;
   justify-content: space-between;
 }
 
-.mealByIdInfo img {
+.meal-by-id-info img {
   max-width: 100%;
 }
 
-.mealByIdInfo h1 {
+.meal-by-id-info h1 {
   margin: 0 0 1.7em 0;
   padding: 0;
 }
 
-.mealInfoLink {
+.meal-info-link {
   display: grid;
   grid-template-columns: 1fr;
   background-color: white;
@@ -70,7 +70,7 @@
   box-shadow: 0px 0px 50px #eeeeee;
 }
 
-.mealInfoLink:hover {
+.meal-info-link:hover {
   box-shadow: 0px 0px 5px hsla(167, 66%, 42%, 0.45);
 }
 
@@ -79,31 +79,31 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .mealsWrapper {
+  .mealsw-rapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
   }
 
-  .mealByIdInfo h1 {
+  .meal-by-id-info h1 {
   font-size: 1.5em;
 }
 
-  .mealByIdInfo p {
+  .meal-by-id-info p {
   font-size: 0.8em;
 }
 
 }
 
 @media screen and (max-width: 900px) {
-  .mealByIdInfo {
+  .meal-by-id-info {
     display:flex;
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 575px) {
-  .mealsWrapper {
+  .meals-wrapper {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;

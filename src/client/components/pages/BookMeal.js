@@ -56,34 +56,37 @@ export function BookMeal({ id }) {
   };
 
   return (
-    <form onSubmit={handleReservationSubmit} className="formStyle border">
-      <h2>
-        Book your <span className="greenText">seat</span>
+    <form onSubmit={handleReservationSubmit} className="form-style border">
+      <h2 className="form-header">
+        Book your <span className="green-text">seat</span>
       </h2>
-          <input
-            type="text"
-            placeholder="Name"
-            value={fullname}
-            name="contact_name"
-            onChange={(e) => setFullname(e.target.value)}
-          ></input>
-          <input
-            type="number"
-            placeholder="Phone"
-            value={phone}
-            name="contact_phonenumber"
-            onChange={(e) => setPhone(e.target.value)}
-          ></input>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            name="contact_email"
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-      {!isDone && <button className="btn">Book seat</button>}
+      <input
+        className="input-form"
+        type="text"
+        placeholder="Name"
+        value={fullname}
+        name="contact_name"
+        onChange={(e) => setFullname(e.target.value)}
+      ></input>
+      <input
+        className="input-form"
+        type="number"
+        placeholder="Phone"
+        value={phone}
+        name="contact_phonenumber"
+        onChange={(e) => setPhone(e.target.value)}
+      ></input>
+      <input
+        className="input-form"
+        type="email"
+        placeholder="Email"
+        value={email}
+        name="contact_email"
+        onChange={(e) => setEmail(e.target.value)}
+      ></input>
+      {!isDone && <button className="submit-btn">Book seat</button>}
       {isDone && (
-        <button className="btn" type="submit" disabled>
+        <button className="submit-btn" type="submit" disabled>
           Processing your reservation...
         </button>
       )}

@@ -43,14 +43,6 @@ export function MealById() {
     setAvailableMeals(jsonData);
   };
 
-  // const seatReserved = reservations
-  //   .filter((reservation) => reservation.meal_id === id)
-  //   .map((guests) => guests.number_of_guests)
-  //   .reduce((prev, curr) => prev + curr, 0);
-
-  // const maxReservations = meal.map((meal) => meal.max_reservations)[0];
-  // const seatAvailable = maxReservations - seatReserved;
-
   useEffect(() => {
     getMealById();
     getReservations();
@@ -100,23 +92,23 @@ export function MealById() {
   return (
     renderMeal.length > 0 ? (
         <div className="container">
-          <section className="mealContainer">
-            <section className="mealByIdInfo">{renderMeal}</section>
+          <section className="meal-container">
+            <section className="meal-by-id-info">{renderMeal}</section>
           </section>
-          <section className="bookReviewContainer">
-            <section className="reservationSection">
+          <section className="book-review-container">
+            <section className="reservation-section">
               {mealToBook ? (
                 <BookMeal id={id} />
               ) : (
-                <div className="formStyle border">
-                  <h2>
-                    Book your <span className="greenText">seat</span>
+                <div className="form-style border">
+                  <h2 className="form-header">
+                    Book your <span className="green-text">seat</span>
                   </h2>
                   Sorry, there are no availiable seats left.
                 </div>
               )}
             </section>
-            <section className="reviewSection">
+            <section className="review-section">
               {renderReviews}
               <LeaveReview id={id} />
             </section>

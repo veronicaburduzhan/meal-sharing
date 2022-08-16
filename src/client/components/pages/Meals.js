@@ -8,11 +8,11 @@ import { SearchMeal } from "./SearchMeal";
 export function Meals() {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
-const handleSearch = (e) => {
-  setSearchValue(e.target.value);
-};
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   const getMeals = async () => {
     if (searchValue === "") {
@@ -35,7 +35,7 @@ const handleSearch = (e) => {
 
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealInfoLink" key={meal.id}>
+      <Link to={`meals/${meal.id}`} className="meal-info-link" key={meal.id}>
         <MealsInfo
           index={i}
           key={meal.id}
@@ -49,10 +49,10 @@ const handleSearch = (e) => {
 
   return (
     <div className="container">
-      <h1 className="pinkText">What is your next delicious expirience?</h1>
+      <h1 className="container-header pink-text">What is your next delicious expirience?</h1>
       <SearchMeal handleSearch={handleSearch} />
-      <section className="mealsSection">
-        <div className="mealsWrapper">
+      <section className="meals-section">
+        <div className="meals-wrapper">
           {isLoading ? <p>Loading...</p> : ""}
           {renderMeals}
         </div>

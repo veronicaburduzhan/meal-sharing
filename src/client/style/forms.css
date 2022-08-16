@@ -1,4 +1,4 @@
-.bookReviewContainer {
+.book-review-container {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -6,21 +6,21 @@
   margin: 2em 0 1em 0;
 }
 
-.reservationSection {
+.reservation-section {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 1.5em;
 }
 
-.reviewSection {
+.review-section {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap:1.5em;
 }
 
-.formStyle {
+.form-style {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
@@ -28,23 +28,23 @@
   transition: box-shadow 0.5s;
 }
 
-.formStyle input {
+.input-form {
   border: #325288 solid 0px;
   background-color: #F7F7F7;
   padding: 0.6rem 0.9rem;
   font-size: 1rem;
 }
 
-.formStyle input::placeholder {
+.input-form::placeholder {
     color: lightgray;
 }
 
-.formStyle h2 {
+.form-header {
   padding: 0;
   margin: 0;
 }
 
-.addMealSection {
+.add-meal-section {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -53,19 +53,19 @@
   height: 70vh;
 }
 
-.addMealDiv {
+.add-meal-div {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 1.5em;
 }
 
-.searchSection {
+.search-section {
   padding: 2em 2em 2em 2em;
 }
 
 @media screen and (max-width: 900px) {
-  .bookReviewContainer {
+  .book-review-container {
     display:flex;
     flex-direction: column;
   }

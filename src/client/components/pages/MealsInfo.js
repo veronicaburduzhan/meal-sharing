@@ -3,14 +3,17 @@ import "../../style/meals.css";
 
 export function MealsInfo({ title, location, price }) {
   return (
-    <div className="mealInfo">
+    <div className="meal-info">
       <div>
-        <img src="https://via.placeholder.com/200x150"></img>
-        <h3 className="pinkText">{title}</h3>
+        <img
+          src="https://via.placeholder.com/200x150"
+          className="meal-info-img"
+        ></img>
+        <h3 className="pink-text meal-info-header">{title}</h3>
       </div>
-      <div className="mealInfoDetails">
+      <div className="meal-info-details">
         <p>
-          Dinner in <span className="greenText">{location}</span>
+          Dinner in <span className="green-text">{location}</span>
         </p>
         <p className="price">DKK {price}</p>
       </div>

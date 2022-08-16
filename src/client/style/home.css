@@ -12,30 +12,30 @@
   justify-content: center;
 }
 
-.banner h1 {
+.banner-header {
   font-size: 2em;
 }
 
-.banner p {
+.banner-text {
   width: 40%;
   font-size: 1em;
 }
 
 @media screen and (max-width: 1000px) {
-  .banner h1 {
+  .banner-header {
   font-size: 2em;
 }
-  .banner p {
+  .banner-text {
     width: 70%;
     font-size: 1em;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .banner h1 {
+  .banner-header {
   font-size: 2em;
 }
-  .banner p {
+  .banner-text {
     width: 85%;
     font-size: 1em;
   }

@@ -50,11 +50,12 @@ export function LeaveReview({ id }) {
     }
   };
   return (
-    <form onSubmit={handleReviewSubmit} className="formStyle border">
-      <h2>
-        Leave a <span className="greenText">review</span>
+    <form onSubmit={handleReviewSubmit} className="form-style border">
+      <h2 className="form-header">
+        Leave a <span className="green-text">review</span>
       </h2>
       <input
+        className="input-form"
         type="text"
         placeholder="Title"
         value={titleReview}
@@ -62,6 +63,7 @@ export function LeaveReview({ id }) {
         onChange={(e) => setTitleReview(e.target.value)}
       ></input>
       <input
+        className="input-form"
         type="number"
         placeholder="Stars"
         value={stars}
@@ -71,15 +73,16 @@ export function LeaveReview({ id }) {
         onChange={(e) => setStars(e.target.value)}
       ></input>
       <input
+        className="input-form"
         type="text"
         placeholder="Description"
         value={descriptionReview}
         name="description"
         onChange={(e) => setDescriptionReview(e.target.value)}
       ></input>
-      {!isDone && <button className="btn">Leave a review</button>}
+      {!isDone && <button className="submit-btn">Leave a review</button>}
       {isDone && (
-        <button className="btn" type="submit" disabled>
+        <button className="submit-btn" type="submit" disabled>
           Posting your review...
         </button>
       )}

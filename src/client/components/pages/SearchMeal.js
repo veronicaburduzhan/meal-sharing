@@ -3,9 +3,9 @@ import "../../style/forms.css";
 
 export function SearchMeal({ handleSearch }) {
   return (
-    <section className="formStyle border searchSection">
+    <section className="form-style border search-section">
       <input
-        className="searchMealInput"
+        className="input-form"
         type="text"
         onChange={handleSearch}
         placeholder="Search meals"

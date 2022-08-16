@@ -71,59 +71,62 @@ export function AddMeal() {
 
     return (
       <section className="container">
-        <h1 className="pinkText">Add new meal</h1>
-            <form
-              onSubmit={handleAddNewMealSubmit}
-              className="formStyle border"
-            >
-              <input
-                type="text"
-                placeholder="Title"
-                value={title}
-                name="title"
-                onChange={(e) => setTitle(e.target.value)}
-              ></input>
-              <input
-                type="text"
-                placeholder="Description"
-                value={description}
-                name="description"
-                onChange={(e) => setDescription(e.target.value)}
-              ></input>
-              <input
-                type="text"
-                placeholder="Where (fx Aalborg, Odence)"
-                value={location}
-                name="location"
-                onChange={(e) => setLocation(e.target.value)}
-              ></input>
-              <input
-                type="date"
-                placeholder="When"
-                name="when"
-                onChange={(e) => setWhen(e.target.value)}
-              ></input>
-              <input
-                type="text"
-                placeholder="Max number of reservations"
-                value={maxReservations}
-                name="max_reservations"
-                onChange={(e) => setMaxReservations(e.target.value)}
-              ></input>
-              <input
-                type="number"
-                placeholder="Price"
-                min="1"
-                name="price"
-                onChange={(e) => setPrice(e.target.value)}
-              ></input>
-              {!isDone && <button className="btn">Create meal</button>}
-              {isDone && (
-                <button type="submit" disabled>
-                  Creating meal...
-                </button>
-              )}
-            </form>
+        <h1 className="pink-text container-header">Add new meal</h1>
+        <form onSubmit={handleAddNewMealSubmit} className="form-style border">
+          <input
+            className="input-form"
+            type="text"
+            placeholder="Title"
+            value={title}
+            name="title"
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
+          <input
+            className="input-form"
+            type="text"
+            placeholder="Description"
+            value={description}
+            name="description"
+            onChange={(e) => setDescription(e.target.value)}
+          ></input>
+          <input
+            className="input-form"
+            type="text"
+            placeholder="Where (fx Aalborg, Odence)"
+            value={location}
+            name="location"
+            onChange={(e) => setLocation(e.target.value)}
+          ></input>
+          <input
+            className="input-form"
+            type="date"
+            placeholder="When"
+            name="when"
+            onChange={(e) => setWhen(e.target.value)}
+          ></input>
+          <input
+            className="input-form"
+            type="text"
+            placeholder="Max number of reservations"
+            value={maxReservations}
+            name="max_reservations"
+            onChange={(e) => setMaxReservations(e.target.value)}
+          ></input>
+          <input
+            className="input-form"
+            type="number"
+            placeholder="Price"
+            min="1"
+            name="price"
+            onChange={(e) => setPrice(e.target.value)}
+          ></input>
+          {!isDone && <button className="submit-btn">Create meal</button>}
+          {isDone && (
+            <button type="submit" className="submit-btn" disabled>
+              Creating meal...
+            </button>
+          )}
+        </form>
       </section>
     );
 }

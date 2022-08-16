@@ -29,7 +29,7 @@ p {
   color: #2d3233;
 }
 
-h1 {
+.container-header {
   font-size: 2em;
 }
 
@@ -54,11 +54,11 @@ p {
   color: #f598bb;
 }
 
-.greenText {
+.green-text {
   color: #24b091;
 }
 
-.pinkText {
+.pink-text {
   color: #f598bb;
 }
 
@@ -78,7 +78,7 @@ a {
   padding: 2em;
 }
 
-.btn {
+.submit-btn {
   background-color: #24b091;
   border: none;
   border-radius: 6px;
@@ -93,11 +93,11 @@ a {
   width: 100%;
 }
 
-.btn:disabled {
+.submit-btn:disabled {
   background-color: lightgray;
 }
 
-.btn:hover {
+.submit-btn:hover {
   color: white;
   background-color: #fcc82f;
 }
@@ -109,7 +109,7 @@ header {
   align-items: center;
 }
 
-nav ul {
+.nav-list {
   display: flex;
   gap: 1.5em;
 }
@@ -122,35 +122,35 @@ footer {
   gap: 5em;
 }
 
-footer ul {
+.footer-list {
   display: flex;
   gap: 1em;
 }
 
-.footerSection {
+.footer-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.footerSection > div {
+.legit-links {
   display: flex;
   gap: 1.5em;
 }
 
-.footerSection:last-child {
+.footer-section:last-child {
   font-size: 0.7em;
 }
 
-.socialMedia {
+.social-media {
   margin: 2em 0;
   width: 2em;
   filter: invert(48%) sepia(95%) saturate(312%) hue-rotate(117deg)
     brightness(98%) contrast(98%);
 }
 
-.socialMedia:hover {
+.social-media:hover {
   filter: invert(72%) sepia(6%) saturate(3120%) hue-rotate(293deg)
     brightness(99%) contrast(94%);
 }
@@ -163,9 +163,9 @@ footer ul {
     justify-content: center;
     align-items: space-between;
   }
-h1 {
-  font-size: 1.5em;
-}
+  .banner-header {
+    font-size: 1.5em;
+  }
   footer {
     margin-top: 1em;
     display: flex;
@@ -176,12 +176,12 @@ h1 {
 }
 
 @media screen and (max-width: 580px) {
-  nav li {
+  .nav-links {
     font-size: 0.8em;
   }
-h1 {
-  font-size: 1.2em;
-}
+  .container-header {
+    font-size: 1.2em;
+  }
   footer {
     margin-top: 1em;
     display: flex;

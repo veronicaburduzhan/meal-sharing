@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/home.css";
+import "../style/meals.css"
 import { useState, useEffect } from "react";
 import { MealsInfo } from "./pages/MealsInfo";
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ export function Home() {
 
   const renderMeals = meals.map((meal, i) => {
     return (
-      <Link to={`meals/${meal.id}`} className="mealInfoLink" key={meal.id}>
+      <Link to={`meals/${meal.id}`} className="meal-info-link" key={meal.id}>
         <MealsInfo
           index={i}
           key={meal.id}
@@ -35,14 +36,14 @@ export function Home() {
   return (
     <div className="center">
       <div className="banner">
-        <h1 className="greenText">MealShare</h1>
-        <p>
+        <h1 className="banner-header greenText">MealShare</h1>
+        <p className="banner-text">
           From home or abroad, join intimate culinary experiences led by
           passionate hosts and chefs that will take your breath away.
         </p>
       </div>
-      <section className="container mealsSection">
-        <div className="mealsWrapper">{renderMeals}</div>
+      <section className="container meals-section">
+        <div className="meals-wrapper">{renderMeals}</div>
       </section>
     </div>
   );

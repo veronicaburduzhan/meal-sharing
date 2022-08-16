@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 export function Footer() {
   return (
     <footer>
-      <section className="footerSection">
-        <ul>
+      <section className="footer-section">
+        <ul className="footer-list">
           <Link to="#">
             <li className="links">
               <img
-                className="socialMedia"
+                className="social-media"
                 src="https://cdn4.iconfinder.com/data/icons/social-media-black-white-2/600/Instagram_glyph_svg-512.png"
               ></img>
             </li>
@@ -17,7 +17,7 @@ export function Footer() {
           <Link to="#">
             <li className="links">
               <img
-                className="socialMedia"
+                className="social-media"
                 src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_2_glyph_svg-512.png"
               ></img>
             </li>
@@ -25,21 +25,21 @@ export function Footer() {
           <Link to="#">
             <li className="links">
               <img
-                className="socialMedia"
+                className="social-media"
                 src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Twitter_glyph_svg-512.png"
               ></img>
             </li>
           </Link>
         </ul>
       </section>
-      <section className="footerSection">
+      <section className="footer-section">
         <p>
           <Link to="/" className="links">
             MealShare
-          </Link>{" "}
+          </Link>
           - Copyright 2022
         </p>
-        <div>
+        <div className="legit-links">
           <Link to="#">
             <p className="links">Terms and Conditions</p>
           </Link>
