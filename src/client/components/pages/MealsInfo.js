@@ -8,6 +8,7 @@ export function MealsInfo({ title, location, price }) {
         <img
           src="https://via.placeholder.com/200x150"
           className="meal-info-img"
+          alt="Placeholder image"
         ></img>
         <h3 className="pink-text meal-info-header">{title}</h3>
       </div>
